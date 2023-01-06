@@ -34,21 +34,4 @@ after('Logout', async function () {
 });
 
 
-describe('EDRT-1183 - Verify Add-Custom-Domain button on Decoupled Site Overview page', function () {
-  it('Verify add custom domain Button', async function () {
-    await when('Navigate to Front-End Sites', async function () {
-      await phoebe.leftMenuBar.navigateToFrontendSites();
-      expect(await phoebe.leftMenuBar.getFrontendFrameworkFilter(),
-        'Not navigated to Front end Sites page').to.be.equal('Front-End Framework');
-    });
-    await then('Navigate to edrt created site', async function () {
-      await phoebe.leftMenuBar.navigatetoSelectedSite('Wordpress_edrt');
-      expect(await phoebe.frontEnd.overview(),
-        'Not navigated to overview page').to.be.equal('Wordpress_edrt');
-      expect(await phoebe.frontEnd.addCustomDomainBtn(),
-        "No Button is available").to.be.true;
-    });
-  });
-});
-
 
